@@ -1,4 +1,0 @@
-test.local.com {
-    tls internal
-    reverse_proxy vaultwarden:80
-}
