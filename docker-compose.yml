@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  # 1. Dịch vụ Vaultwarden (Backend lưu trữ mật khẩu)
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: always
+    environment:
+      - WEBSOCKET_ENABLED=true # Bật tính năng đồng bộ thời gian thực
+      - SIGNUPS_ALLOWED=true   # Tắt tính năng tự đăng ký sau khi bạn tạo xong tài khoản admin (Bảo mật)
+    volumes:
+      - ./vw-data:/data # Lưu trữ dữ liệu mật khẩu bền vững xuống máy host
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+
+  # 2. Nginx Proxy Manager (Quản lý HTTPS và SSL)
+  nginx-proxy-manager:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: nginx-proxy-manager
+    restart: always
+    ports:
+      - '80:80'   # Port nhận traffic HTTP
+      - '443:443' # Port nhận traffic HTTPS (Bắt buộc cho Vaultwarden)
+      - '81:81'   # Port vào trang quản lý Web UI của Nginx
+    volumes:
+      - ./npm-data:/data
+      - ./npm-letsencrypt:/etc/letsencrypt
+

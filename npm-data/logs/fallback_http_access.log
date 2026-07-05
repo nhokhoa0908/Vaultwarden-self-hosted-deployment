@@ -1,0 +1,4 @@
+[05/Jul/2026:13:22:45 +0000] 200 - GET http 192.168.10.142 "/" [Client 192.168.10.142] [Length 568] [Gzip 1.86] "Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0" "-"
+[05/Jul/2026:13:22:45 +0000] 400 - GET http 192.168.10.142 "/favicon.ico" [Client 127.0.0.1] [Length 230] [Gzip -] "-" "-"
+[05/Jul/2026:13:44:05 +0000] 200 - GET http 192.168.10.142 "/" [Client 192.168.10.142] [Length 568] [Gzip 1.86] "Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0" "-"
+[05/Jul/2026:13:44:05 +0000] 400 - GET http 192.168.10.142 "/favicon.ico" [Client 127.0.0.1] [Length 230] [Gzip -] "-" "-"
