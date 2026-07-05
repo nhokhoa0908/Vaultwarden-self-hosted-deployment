@@ -1,1 +1,0 @@
-{"apps":{"http":{"servers":{"srv0":{"listen":[":443"],"routes":[{"handle":[{"handler":"subroute","routes":[{"handle":[{"handler":"reverse_proxy","upstreams":[{"dial":"vaultwarden:80"}]}]}]}],"match":[{"host":["test.local.com"]}],"terminal":true}]}}},"tls":{"automation":{"policies":[{"issuers":[{"module":"internal"}],"subjects":["test.local.com"]}]}}}}
