@@ -1,13 +1,13 @@
 version: '3.8'
 
 services:
-  # 1. Dịch vụ Vaultwarden (Backend lưu trữ mật khẩu)
+  # 1. Dịch vụ Vaultwarden
   vaultwarden:
     image: vaultwarden/server:latest
     container_name: vaultwarden
     restart: always
     environment:
-      - WEBSOCKET_ENABLED=true # Bật tính năng đồng bộ thời gian thực
+      - WEBSOCKET_ENABLED=true 
       - SIGNUPS_ALLOWED=true   # Tắt tính năng tự đăng ký sau khi bạn tạo xong tài khoản admin (Bảo mật)
     volumes:
       - ./vw-data:/data # Lưu trữ dữ liệu mật khẩu bền vững xuống máy host
